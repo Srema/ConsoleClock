@@ -20,5 +20,13 @@ void CursorUtil_Hide()
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
 }
 
+void WindowUtil_changeWindowSize(int lines, int cols) {
+	char command[64] = { '\0', };
+	sprintf_s(command, "mode con: lines = %d cols = %d", lines, cols);
+	system(command);
+}
 
+void FontUtil_ChangeFontColor(int color) {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
 
